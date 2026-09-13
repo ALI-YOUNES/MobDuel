@@ -1,0 +1,63 @@
+.zone {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #d8e2ff, #f9f9ff);
+}
+
+.tagWrap {
+  position: absolute;
+  bottom: 80px;
+  left: 32px;
+  z-index: 30;
+}
+
+@media (min-width: 768px) {
+  .tagWrap {
+    bottom: 16px;
+    left: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tagWrap {
+    left: 8px;
+    bottom: 72px;
+  }
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1024px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    margin-bottom: 0;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 4px;
+  z-index: 10;
+}
+
+@media (max-width: 767px) {
+  .row {
+    justify-content: flex-start;
+  }
+}

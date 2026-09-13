@@ -1,0 +1,332 @@
+.nav {
+  display: none;
+  height: 100%;
+  width: 256px;
+  flex-direction: column;
+  padding: 24px;
+  gap: 12px;
+  background: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  z-index: 30;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(193, 198, 215, 0.2);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.navOpen {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navWaiting {
+  opacity: 1;
+  transform: translateX(-8px);
+}
+/* While waiting on the opponent's turn, keep the always-usable "Show my hand"
+   button and the header fully readable instead of dimming the whole nav. */
+.navWaiting .phases,
+.navWaiting .endTurn,
+.navWaiting .waitBanner {
+  opacity: 0.6;
+}
+.navWaiting .viewHand,
+.navWaiting .viewHand:hover {
+  background: #e7f3ff;
+}
+
+.subMine {
+  color: #1e9e42;
+}
+
+.subWaiting {
+  color: #414754;
+}
+
+.subIcon {
+  font-size: 16px;
+  vertical-align: -3px;
+  margin-right: 2px;
+}
+
+.waitBanner {
+  margin-top: -20px;
+  margin-bottom: 12px;
+  background: #e7f3ff;
+  border: 1px solid #b3d6ff;
+  color: #0059bb;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.viewHand {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #e7f3ff;
+  color: #0059bb;
+  border: 1px solid #b3d6ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.viewHand:hover {
+  background: #d6eaff;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.head {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.muteBtn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #eef1f6;
+  color: #414754;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+
+.muteBtn:hover {
+  background: #dde4ee;
+  color: #0059bb;
+}
+
+.muteBtn:active {
+  transform: scale(0.9);
+}
+
+.headIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #0070ea;
+  color: #fefcff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 91, 192, 0.2);
+}
+
+.headTitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #0059bb;
+  letter-spacing: -0.02em;
+}
+
+.headSub {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: #414754;
+}
+
+.phases {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.phase {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phaseInactive {
+  opacity: 0.6;
+}
+
+.phaseTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  color: #414754;
+  border-radius: 12px;
+  position: relative;
+}
+
+.phaseTitleActive {
+  background: #0070ea;
+  color: #fefcff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 91, 192, 0.2);
+  transform: translateY(-2px);
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.pulseDot {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #fdc003;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.doneIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #28a745;
+  font-size: 20px;
+}
+
+.actions {
+  padding: 0 12px 0 48px;
+  display: flex;
+  gap: 8px;
+}
+
+.actionsColumn {
+  flex-direction: column;
+}
+
+.actionBtn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e0e2ed;
+  color: #414754;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.actionsColumn .actionBtn {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.cooldownNote {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 15px;
+  color: #b5450d;
+  background: rgba(255, 152, 0, 0.12);
+  border: 1px solid rgba(255, 152, 0, 0.35);
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.actionBtn:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.yellow {
+  background: #fdc003;
+  color: #6c5000;
+}
+
+.gray {
+  background: #e0e2ed;
+  color: #181c23;
+}
+
+.orange {
+  background: #fd7e14;
+  color: #ffffff;
+}
+
+.attackActive {
+  background: #ba1a1a;
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(186, 26, 26, 0.35);
+  animation: attackGlow 1.2s infinite;
+}
+
+@keyframes attackGlow {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(186, 26, 26, 0.35); }
+  50% { box-shadow: 0 0 0 6px rgba(186, 26, 26, 0.15); }
+}
+
+.endTurn {
+  margin-top: auto;
+  width: 100%;
+  background: #ba1a1a;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 3px 0 0 rgba(147, 0, 10, 1);
+  transition: transform 0.1s ease;
+}
+
+.endTurn:disabled {
+  background: #ba1a1a;
+  color: #ffffff;
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.endTurn:not(:disabled):active {
+  transform: translateY(3px);
+  box-shadow: none;
+}

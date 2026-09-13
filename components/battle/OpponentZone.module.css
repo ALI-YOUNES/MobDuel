@@ -1,0 +1,49 @@
+.zone {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 4px solid #e0e2ed;
+  background: radial-gradient(ellipse at top, #ebedf9, #f9f9ff);
+}
+
+.tagWrap {
+  position: absolute;
+  top: 16px;
+  right: 32px;
+  z-index: 10;
+}
+
+@media (max-width: 767px) {
+  .tagWrap {
+    right: 8px;
+    top: 8px;
+  }
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1024px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 0 4px;
+}
+
+@media (max-width: 767px) {
+  .row {
+    justify-content: flex-start;
+  }
+}

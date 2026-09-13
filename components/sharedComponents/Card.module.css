@@ -1,0 +1,234 @@
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  aspect-ratio: 2.5 / 3.5;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.selected {
+  transform: translateY(-12px);
+  box-shadow: 0 0 0 4px #0059bb, 0 14px 28px rgba(0, 89, 187, 0.35);
+  z-index: 2;
+}
+
+.selected:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 0 4px #0059bb, 0 14px 28px rgba(0, 89, 187, 0.35);
+}
+
+/* ── Borders per type ── */
+.borderLegendary { border: 4px solid #fdc003; }
+.borderRare { border: 4px solid #0059bb; }
+.borderCommon { border: 4px solid #c1c6d7; }
+.borderElite { border: 4px solid #28a745; }
+
+.borderBoss {
+  border: 4px solid #ba1a1a;
+}
+
+.card:hover.borderBoss {
+  box-shadow: 0 0 20px rgba(255, 180, 171, 0.6);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  z-index: 10;
+}
+
+.headerLegendary { background: #fdc003; border-bottom: 4px solid #785900; }
+.headerRare { background: #0059bb; border-bottom: 4px solid #004493; }
+.headerCommon { background: #e0e2ed; border-bottom: 4px solid #717786; }
+.headerBoss { background: #ba1a1a; border-bottom: 4px solid #93000a; }
+.headerElite { background: #28a745; border-bottom: 4px solid rgba(0, 31, 63, 0.2); }
+
+.name {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.nameLegendary { color: #6c5000; }
+
+.power {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 6;
+  background: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.powerLegendary { color: #fdc003; }
+.powerRare { color: #0059bb; }
+.powerCommon { color: #181c23; }
+.powerBoss { color: #ba1a1a; }
+.powerElite { color: #28a745; }
+
+/* ── Art ── */
+.art {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artLegendary { background: #ffdf9e; }
+.artRare { background: #d8e2ff; }
+.artCommon { background: #f8f9fa; }
+.artBoss { background: #ffdad6; }
+.artElite { background: #e8f5e9; }
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s;
+}
+
+.card:hover .bgImage {
+  transform: scale(1.1);
+}
+
+/* ── Type Label ── */
+.typeLabel {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.typeLabelLegendary { background: #785900; color: #ffffff; border: 2px solid #fdc003; transform: rotate(-5deg); }
+.typeLabelRare { background: #0070ea; color: #ffffff; border: 2px solid #0059bb; transform: rotate(5deg); }
+.typeLabelCommon { background: #717786; color: #ffffff; border: 2px solid #c1c6d7; transform: rotate(-2deg); }
+.typeLabelBoss { background: #93000a; color: #ffdad6; border: 2px solid #ba1a1a; transform: rotate(5deg); }
+.typeLabelElite { background: #001f3f; color: #ffffff; border: 2px solid #28a745; transform: rotate(-3deg); }
+
+/* ── Footer ── */
+.footer {
+  padding: 16px;
+  background: #ffffff;
+  z-index: 10;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footerLegendary { border-top: 4px solid #c1c6d7; }
+.footerBoss { border-top: 4px solid #ba1a1a; }
+
+.description {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #181c23;
+}
+
+.descriptionBoss { color: #ba1a1a; }
+
+/* ── Compact variant (battle hand) ── */
+.compact {
+  aspect-ratio: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.compactHeader {
+  padding: 2px 5px;
+  border-bottom-width: 2px;
+}
+
+.compactName {
+  font-size: 8px;
+  line-height: 10px;
+  font-weight: 700;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+.compactPower {
+  font-size: 11px;
+  line-height: 12px;
+  font-weight: 800;
+  padding: 2px 6px;
+  left: 4px;
+  bottom: 4px;
+  border-width: 1px;
+}
+
+.compactArt {
+  flex: 1;
+  min-height: 0;
+}
+
+.compactArt .typeLabel {
+  font-size: 6px;
+  line-height: 8px;
+  padding: 1px 3px;
+  bottom: 3px;
+  right: 3px;
+  border-width: 1px;
+}
+
+.compactFooter {
+  height: auto;
+  flex-shrink: 0;
+  padding: 2px 5px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.compactDescription {
+  font-family: "Quicksand", sans-serif;
+  font-size: 6px;
+  line-height: 8px;
+  font-weight: 600;
+  text-align: center;
+  color: #181c23;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

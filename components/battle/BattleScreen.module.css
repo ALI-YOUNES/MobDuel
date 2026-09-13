@@ -1,0 +1,567 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: #f9f9ff;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #f9f9ff;
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.battlefield {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+@media (min-width: 768px) {
+  .battlefield {
+    display: flex;
+  }
+}
+
+.statusStrip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  margin: 8px 12px 0;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  color: #181c23;
+}
+
+.myTurnStrip {
+  background: #e7f6ea;
+  border: 1px solid #b7e4c3;
+}
+
+.oppTurnStrip {
+  background: #eef0f6;
+  border: 1px solid #d6d9e6;
+}
+
+.statusIcon {
+  font-size: 18px;
+  color: #414754;
+}
+
+.statusText {
+  flex: 1;
+}
+
+/* ── Deal / card spreading animation ── */
+.dealOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 31, 63, 0.55);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+}
+
+/* Deal wrapper: animates from a central pile toward a player's side */
+.dealFrame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 72px;
+  height: 100px;
+  margin-left: -36px;
+  margin-top: -50px;
+  opacity: 0;
+}
+
+.dealCard {
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+/* Toward Player 1 (bottom) */
+.dealToBottom {
+  animation: dealBottom 0.9s ease forwards;
+}
+
+@keyframes dealBottom {
+  0% {
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--deal-x, 0px), var(--deal-y, 40vh)) scale(0.85) rotate(var(--deal-r, 0deg));
+    opacity: 1;
+  }
+}
+
+/* Toward Player 2 (top) */
+.dealToTop {
+  animation: dealTop 0.9s ease forwards;
+}
+
+@keyframes dealTop {
+  0% {
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--deal-x, 0px), var(--deal-y, -40vh)) scale(0.85) rotate(var(--deal-r, 0deg));
+    opacity: 1;
+  }
+}
+
+/* ── Win overlay ── */
+.winOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 31, 63, 0.88);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  animation: winFade 0.5s ease;
+}
+
+@keyframes winFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.confettiPiece {
+  position: absolute;
+  top: -20px;
+  width: 12px;
+  height: 18px;
+  border-radius: 2px;
+  animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% { transform: translate(0, -20px) rotate(0deg); opacity: 1; }
+  100% { transform: translate(40px, 105vh) rotate(720deg); opacity: 0.6; }
+}
+
+.winCard {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: 48px 40px;
+  box-shadow: 0 0 0 6px rgba(253, 192, 3, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: winPop 0.5s ease;
+}
+
+@keyframes winPop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.winTitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: 800;
+  color: #fdc003;
+  text-shadow: 0 2px 0 #785900;
+}
+
+.winSub {
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #414754;
+}
+
+.winBtn {
+  margin-top: 8px;
+  background: #0059bb;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 0 0 rgba(0, 31, 63, 1);
+  transition: transform 0.1s ease;
+}
+
+.winBtn:hover {
+  background: #0070ea;
+}
+
+.winBtn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.autoNav {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #717786;
+}
+
+/* ── Lose overlay ── */
+.loseOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 2, 2, 0.88);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  animation: winFade 0.5s ease;
+}
+
+.loseShards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.loseShard {
+  position: absolute;
+  top: 20vh;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  animation: shardDrop 2.5s linear infinite;
+}
+
+@keyframes shardDrop {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(-30px, 105vh) rotate(-720deg) scale(0.4); opacity: 0; }
+}
+
+.loseCard {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: 48px 40px;
+  box-shadow: 0 0 0 6px rgba(186, 26, 26, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: winPop 0.5s ease;
+}
+
+.loseTitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: 800;
+  color: #ba1a1a;
+  text-shadow: 0 2px 0 #93000a;
+}
+
+.loseSub {
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #414754;
+}
+
+/* ── Game Aborted overlay ── */
+.abortOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  animation: winFade 0.5s ease;
+}
+
+.abortCard {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: 48px 40px;
+  box-shadow: 0 0 0 6px rgba(113, 119, 134, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: winPop 0.5s ease;
+}
+
+.abortTitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 800;
+  color: #414754;
+}
+
+.abortSub {
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: #717786;
+}
+
+.abortBtn {
+  margin-top: 8px;
+  background: #0059bb;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 0 0 rgba(0, 31, 63, 1);
+  transition: transform 0.1s ease;
+}
+
+.abortBtn:hover {
+  background: #0070ea;
+}
+
+.abortBtn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+/* ── Anomaly (Rare card) targeting banner ── */
+.anomalyBanner {
+  position: fixed;
+  top: 74px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(620px, calc(100vw - 32px));
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(46, 27, 66, 0.95);
+  color: #f3e5f5;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  animation: anomalySlide 0.3s ease;
+}
+
+.errorBanner {
+  background: rgba(88, 14, 26, 0.97);
+  color: #ffd7db;
+  border: 1px solid rgba(255, 138, 128, 0.55);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+  z-index: 130;
+}
+
+.errorBanner .anomalyIcon { color: #ff8a80; }
+
+@keyframes anomalySlide {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.anomalyIcon { color: #ce93d8; }
+
+.anomalyText {
+  font-family: "Quicksand", sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.anomalyCancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.anomalyCancel:hover { background: rgba(255, 255, 255, 0.3); }
+
+/* ── Spyglass peek modal ── */
+.peekOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  animation: winFade 0.25s ease;
+}
+
+.peekPanel {
+  width: min(720px, 92vw);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 20px 24px;
+  box-shadow: 0 0 0 4px rgba(0, 188, 212, 0.5), 0 20px 60px rgba(0, 0, 0, 0.45);
+  animation: winPop 0.3s ease;
+}
+
+.peekHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #006064;
+}
+
+.peekHeader h3 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  flex: 1;
+  margin: 0;
+}
+
+.peekSub {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #717786;
+  margin: 10px 0;
+}
+
+.peekRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.peekCard {
+  width: 104px;
+  height: 148px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.peekCard:hover { transform: translateY(-6px) scale(1.04); }
+
+/* Full-viewport overlays for shared battle FX (laser beam + impact flash). */
+.fxLayer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.laserBeam {
+  position: absolute;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(255, 214, 0, 0.9), rgba(255, 82, 82, 0.95));
+  box-shadow: 0 0 12px 2px rgba(255, 82, 82, 0.6);
+  border-radius: 4px;
+  transform-origin: center;
+  animation: beamCharge 0.18s ease-out, beamFire 0.35s ease-in 0.18s;
+}
+
+.hitFlash {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hitEnemy {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 159, 28, 0.8) 35%, rgba(255, 82, 82, 0) 70%);
+  animation: hitBurst 0.55s ease-out forwards;
+}
+
+@keyframes beamCharge {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes beamFire {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes hitBurst {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+  70% { transform: translate(-50%, -50%) scale(1.6); opacity: 0.85; }
+  100% { transform: translate(-50%, -50%) scale(2.1); opacity: 0; }
+}

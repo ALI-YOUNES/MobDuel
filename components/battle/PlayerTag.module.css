@@ -1,0 +1,46 @@
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e6e8f3;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(193, 198, 215, 0.3);
+  color: #181c23;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.primary .avatar {
+  background: #0070ea;
+  color: #fefcff;
+}
+
+.error .avatar {
+  background: #ffdad6;
+  color: #93000a;
+}
+
+.name {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.hp {
+  padding: 2px 8px;
+  background: #28a745;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+}

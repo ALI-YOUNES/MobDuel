@@ -1,0 +1,91 @@
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.1);
+  border: 4px solid #e6e8f3;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  height: 192px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 31, 63, 0.15);
+}
+
+.cardActive {
+  border-color: #0059bb;
+}
+
+.hostBadge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #fdc003;
+  color: #6c5000;
+  border-radius: 9999px;
+  padding: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  border: 4px solid #fdc003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0070ea;
+}
+
+.avatarActive {
+  border-color: #0059bb;
+  background: #0059bb;
+}
+
+.info {
+  text-align: center;
+}
+
+.name {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: #181c23;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 4px;
+  color: #28a745;
+}
+
+.subtitleText {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  margin-top: 4px;
+  background: #e8f5e9;
+  color: #28a745;
+}

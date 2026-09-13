@@ -1,0 +1,19 @@
+.section {
+  max-width: 64rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.emptySlot {
+  border: 4px dashed #c1c6d7;
+  border-radius: 12px;
+  height: 192px;
+}

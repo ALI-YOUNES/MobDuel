@@ -1,0 +1,238 @@
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fullscreenCard {
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn 0.32s ease;
+}
+
+.fullscreenCardLegendary { box-shadow: 0 0 0 3px #fdc003, 0 24px 60px rgba(253, 192, 3, 0.35); }
+.fullscreenCardRare { box-shadow: 0 0 0 3px #0070ea, 0 24px 60px rgba(0, 112, 234, 0.35); }
+.fullscreenCardCommon { box-shadow: 0 0 0 3px #b9bfcd, 0 24px 60px rgba(65, 71, 84, 0.3); }
+.fullscreenCardBoss { box-shadow: 0 0 0 3px #ba1a1a, 0 24px 60px rgba(186, 26, 26, 0.4); }
+.fullscreenCardElite { box-shadow: 0 0 0 3px #28a745, 0 24px 60px rgba(40, 167, 69, 0.35); }
+
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.fullscreenClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s, background 0.15s;
+  z-index: 110;
+}
+
+.fullscreenClose:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: #ffffff;
+}
+
+.fullscreenHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px 14px;
+}
+
+.fullscreenHeaderLegendary { background: #fdc003; }
+.fullscreenHeaderRare { background: #0070ea; }
+.fullscreenHeaderCommon { background: #414754; }
+.fullscreenHeaderBoss { background: #ba1a1a; }
+.fullscreenHeaderElite { background: #28a745; }
+
+.rarityChip {
+  align-self: flex-start;
+  font-family: "Quicksand", sans-serif;
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.fullscreenName {
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 700;
+  color: #ffffff;
+  max-width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.fullscreenNameLegendary { color: #4d3a00; }
+
+.fullscreenArt {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+  max-height: 46vh;
+  overflow: hidden;
+}
+
+.fullscreenArtLegendary {
+  background: radial-gradient(circle at 50% 42%, #ffefc2 0%, #fdc003 70%, #b982 0 70% 100%);
+}
+.fullscreenArtRare { background: radial-gradient(circle at 50% 42%, #e3edff 0%, #8fb8ff 70%, #2f63b8 70% 100%); }
+.fullscreenArtCommon { background: radial-gradient(circle at 50% 42%, #ffffff 0%, #c9cfe0 70%, #7d8597 70% 100%); }
+.fullscreenArtBoss { background: radial-gradient(circle at 50% 42%, #ffe3de 0%, #ff8d80 70%, #b3261e 70% 100%); }
+.fullscreenArtElite { background: radial-gradient(circle at 50% 42%, #d9f2e0 0%, #8ce7a6 70%, #1e8e46 70% 100%); }
+
+/* Show the full sprite without cropping; the tinted backdrop and a soft
+   multiply blend let the art melt into the rarity-colored frame edges. */
+.fullscreenBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.18));
+}
+
+/* Newtons-cradle vignette: darkens the bottom so the POWER badge and type
+   ribbon stay readable over busy art. */
+.fullscreenScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 45%);
+  pointer-events: none;
+}
+
+.powerBadge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 9999px;
+  padding: 6px 14px 6px 6px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.powerLabel {
+  font-family: "Quicksand", sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  background: #181c23;
+  padding: 4px 7px;
+  border-radius: 9999px;
+}
+
+.powerValue {
+  font-family: "Quicksand", sans-serif;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #181c23;
+}
+
+.powerBadgeLegendary .powerValue { color: #fdc003; }
+.powerBadgeRare .powerValue { color: #0070ea; }
+.powerBadgeCommon .powerValue { color: #414754; }
+.powerBadgeBoss .powerValue { color: #ba1a1a; }
+.powerBadgeElite .powerValue { color: #28a745; }
+
+.fullscreenTypeLabel {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.fullscreenTypeLabelLegendary { background: #785900; color: #ffffff; border: 2px solid #fdc003; transform: rotate(-5deg); }
+.fullscreenTypeLabelRare { background: #004493; color: #ffffff; border: 2px solid #0070ea; transform: rotate(5deg); }
+.fullscreenTypeLabelCommon { background: #717786; color: #ffffff; border: 2px solid #c1c6d7; transform: rotate(-2deg); }
+.fullscreenTypeLabelBoss { background: #93000a; color: #ffdad6; border: 2px solid #ba1a1a; transform: rotate(5deg); }
+.fullscreenTypeLabelElite { background: #001f3f; color: #ffffff; border: 2px solid #28a745; transform: rotate(-3deg); }
+
+.fullscreenFooter {
+  padding: 20px;
+  background: #ffffff;
+  border-top: 4px solid #c1c6d7;
+}
+
+.fullscreenFooterBoss { border-top: 4px solid #ba1a1a; }
+
+.footerLabel {
+  display: block;
+  font-family: "Quicksand", sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #717786;
+  margin-bottom: 8px;
+}
+
+.fullscreenDescription {
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  text-align: center;
+  color: #181c23;
+  max-height: calc(90vh - 60vh);
+  overflow-y: auto;
+  margin: 0;
+}
+
+.fullscreenDescriptionBoss { color: #ba1a1a; }

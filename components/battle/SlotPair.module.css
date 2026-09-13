@@ -1,0 +1,20 @@
+.pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;
+}
+
+/* The rotated defense slot visually extends about half its width/height
+   beyond its layout box; the 28px gap keeps it clear of the active card
+   above and neighboring columns. */
+.activeCell {
+  z-index: 10;
+}
+
+.defenseCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

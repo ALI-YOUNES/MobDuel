@@ -1,0 +1,602 @@
+.page {
+  min-height: 100vh;
+  background: #f1f3fe;
+  color: #1b1b1e;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 2px solid #d7d9e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0 32px;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.playerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #1b1b1e;
+}
+
+.playerLevel {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #46464f;
+}
+
+.headerDivider {
+  height: 32px;
+  width: 4px;
+  border-radius: 9999px;
+  background: #d7d9e5;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .headerDivider {
+    display: block;
+  }
+}
+
+.headerTitleDesktop {
+  display: none;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #3d5afe;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .headerTitleDesktop {
+    display: block;
+  }
+}
+
+.headerTitleMobile {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #3d5afe;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .headerTitleMobile {
+    display: none;
+  }
+}
+
+.helpBtn {
+  color: #46464f;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.helpBtn:hover {
+  color: #3d5afe;
+  background: #dfe1fa;
+}
+
+.helpBtn:active {
+  transform: scale(0.95);
+}
+
+/* ── Main ── */
+.pageBody {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+  padding-top: 64px;
+  position: relative;
+  z-index: 10;
+}
+
+.main {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  padding-bottom: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.mainInner {
+  width: 100%;
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heroTitle {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  color: #3d5afe;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.heroSubtitle {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #46464f;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+/* ── Action Buttons ── */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.startBtn {
+  width: 100%;
+  background: #ffc107;
+  color: #1b1b1e;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  border: 4px solid #ffa000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.startBtn:hover {
+  background: #ffb300;
+  transform: scale(1.05);
+}
+
+.startBtn:active {
+  transform: scale(0.95);
+}
+
+.deckBtn {
+  width: 100%;
+  background: #e3e2e6;
+  color: #1b1b1e;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  border: 4px solid #c6c6ca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.deckBtn:hover {
+  background: #c6c6ca;
+  transform: scale(1.05);
+}
+
+.deckBtn:active {
+  transform: scale(0.95);
+}
+
+/* ── Stat Cards ── */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-top: 48px;
+}
+
+@media (min-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statCard {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 1.5rem;
+  border: 4px solid #d7d9e5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+}
+
+.statBg {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 96px;
+  height: 96px;
+  border-radius: 9999px;
+  transition: transform 0.2s;
+}
+
+.statCard:hover .statBg {
+  transform: scale(1.1);
+}
+
+.statBgYellow {
+  background: rgba(255, 193, 7, 0.2);
+}
+
+.statBgGreen {
+  background: rgba(76, 175, 80, 0.2);
+}
+
+.statBgOrange {
+  background: rgba(255, 87, 34, 0.2);
+}
+
+.statIcon {
+  font-size: 48px;
+  margin-bottom: 8px;
+  z-index: 10;
+  font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 24;
+}
+
+.statIconYellow {
+  color: #ffc107;
+}
+
+.statIconGreen {
+  color: #4caf50;
+}
+
+.statIconOrange {
+  color: #ff5722;
+}
+
+.statLabel {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #46464f;
+  z-index: 10;
+}
+
+.statValue {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #1b1b1e;
+  margin-top: 4px;
+  z-index: 10;
+}
+
+/* ── Bottom Nav (mobile) ── */
+.bottomNav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 50;
+  background: #ffffff;
+  border-top: 2px solid #d7d9e5;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  padding: 0 16px;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .bottomNav {
+    display: none;
+  }
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #46464f;
+  text-decoration: none;
+  transition: color 0.15s, transform 0.1s;
+}
+
+.navItem:hover {
+  color: #3d5afe;
+}
+
+.navItem:active {
+  transform: scale(0.9);
+}
+
+.navItemActive {
+  color: #3d5afe;
+  transform: scale(1.1);
+}
+
+.navIcon {
+  font-size: 24px;
+  margin-bottom: 4px;
+  font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 24;
+}
+
+/* ── Practice vs Bot ── */
+.practiceBtn {
+  width: 100%;
+  background: #3d5afe;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  border: 4px solid #2946e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.practiceBtn:hover {
+  background: #5568ff;
+  transform: scale(1.05);
+}
+
+.practiceBtn:active {
+  transform: scale(0.95);
+}
+
+.practiceBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(27, 27, 30, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.practicePanel {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  border: 4px solid #d7d9e5;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  width: 100%;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.practiceHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.practiceTitle {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 800;
+  color: #1b1b1e;
+  margin: 0;
+}
+
+.practiceSub {
+  font-size: 13px;
+  line-height: 18px;
+  color: #46464f;
+  margin: 0;
+}
+
+.practiceClose {
+  margin-left: auto;
+  background: #f1f3fe;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #46464f;
+  transition: color 0.15s, background 0.15s;
+}
+
+.practiceClose:hover {
+  color: #1b1b1e;
+  background: #dfe1fa;
+}
+
+.diffGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 480px) {
+  .diffGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.diffCard {
+  background: #f1f3fe;
+  border: 3px solid #d7d9e5;
+  border-radius: 1rem;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  transition: background 0.15s, transform 0.15s, border-color 0.15s;
+}
+
+.diffCard:hover:not(:disabled) {
+  background: #e3e6fa;
+  border-color: #3d5afe;
+  transform: translateY(-3px);
+}
+
+.diffCard:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.diffIcon {
+  font-size: 32px;
+  color: #3d5afe;
+}
+
+.diffLabel {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 800;
+  color: #1b1b1e;
+}
+
+.diffBlurb {
+  font-size: 12px;
+  line-height: 16px;
+  color: #46464f;
+  font-weight: 600;
+}
+
+.practiceStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3d5afe;
+  margin: 0;
+}
+
+.practiceSpin {
+  animation: practiceSpin 1s linear infinite;
+}
+
+@keyframes practiceSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.practiceError {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #ba1a1a;
+  text-align: center;
+}

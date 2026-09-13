@@ -1,0 +1,125 @@
+// Mob Duel Jr - Prisma schema
+// Backend data model for rooms, players, matches and the card catalog.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// A registered player. `name` (moniker) identifies an account; `password` is
+// set for players who register via /api/auth/register. Players may also be
+// created ad-hoc through the socket flow (room host/join) and have no password.
+model Player {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  email     String?  @unique
+  password  String?
+  socketId  String?  @unique
+  createdAt DateTime @default(now())
+
+  memberships  RoomMember[]
+  hostedRooms  Room[]
+  matchPlayers MatchPlayer[]
+  wonMatches   Match[]      @relation("MatchWinner")
+  deckCards    DeckCard[]
+}
+
+// A play room created by a host and joined by others via a 6-character code.
+model Room {
+  id        String      @id @default(cuid())
+  code      String      @unique
+  hostId    String
+  host      Player      @relation(fields: [hostId], references: [id])
+  status    RoomStatus  @default(LOBBY)
+  createdAt DateTime    @default(now())
+
+  members   RoomMember[]
+  matches   Match[]
+}
+
+// Join table: which players are in which room and their seat number.
+model RoomMember {
+  id       String  @id @default(cuid())
+  roomId   String
+  playerId String
+  room     Room    @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  player   Player  @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([roomId, playerId])
+}
+
+// A battle. `state` holds the live board as JSON, mutated in real time via
+// Socket.IO and persisted periodically / on completion.
+model Match {
+  id        String      @id @default(cuid())
+  roomId    String
+  winnerId  String?
+  status    MatchStatus @default(IN_PROGRESS)
+  state     Json?
+  createdAt DateTime    @default(now())
+  room      Room        @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  winner    Player?     @relation("MatchWinner", fields: [winnerId], references: [id])
+
+  players MatchPlayer[]
+
+  @@index([roomId])
+}
+
+// Which players participated in a match.
+model MatchPlayer {
+  id       String @id @default(cuid())
+  matchId  String
+  playerId String
+  match    Match  @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([matchId, playerId])
+}
+
+// Static card catalog. `power` is null for Anomaly cards (Spyglass, TNT, ...).
+model Card {
+  id          Int      @id
+  name        String
+  type        CardType
+  power       Int?
+  description String
+
+  deckCards DeckCard[]
+}
+
+// A player's deck: many-to-many between Player and Card.
+model DeckCard {
+  id       String @id @default(cuid())
+  playerId String
+  cardId   Int
+  player   Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  card     Card   @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, cardId])
+}
+
+enum RoomStatus {
+  LOBBY
+  IN_GAME
+  ENDED
+}
+
+enum MatchStatus {
+  IN_PROGRESS
+  PLAYER1_WIN
+  PLAYER2_WIN
+  DRAW
+  ABANDONED
+}
+
+enum CardType {
+  LEGENDARY
+  RARE
+  COMMON
+  BOSS
+  ELITE
+}

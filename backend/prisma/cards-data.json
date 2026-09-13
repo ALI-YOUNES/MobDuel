@@ -1,0 +1,602 @@
+[
+  {
+    "name": "Chicken",
+    "type": "COMMON",
+    "power": 10,
+    "description": "A tiny farm animal with very low Power."
+  },
+  {
+    "name": "Pig",
+    "type": "COMMON",
+    "power": 12,
+    "description": "A simple farm animal with low Power."
+  },
+  {
+    "name": "Sheep",
+    "type": "COMMON",
+    "power": 13,
+    "description": "A peaceful animal with slightly better Power than a Pig."
+  },
+  {
+    "name": "Cow",
+    "type": "COMMON",
+    "power": 15,
+    "description": "A sturdy farm animal with dependable early-game Power."
+  },
+  {
+    "name": "Rabbit",
+    "type": "COMMON",
+    "power": 9,
+    "description": "A small and evasive creature with very low Power."
+  },
+  {
+    "name": "Cod",
+    "type": "COMMON",
+    "power": 7,
+    "description": "A small fish with almost no combat strength."
+  },
+  {
+    "name": "Salmon",
+    "type": "COMMON",
+    "power": 8,
+    "description": "A slightly stronger common fish."
+  },
+  {
+    "name": "Tropical Fish",
+    "type": "COMMON",
+    "power": 6,
+    "description": "A colorful but fragile aquatic Mob."
+  },
+  {
+    "name": "Pufferfish",
+    "type": "COMMON",
+    "power": 14,
+    "description": "A tiny Mob that is dangerous when approached carelessly."
+  },
+  {
+    "name": "Squid",
+    "type": "COMMON",
+    "power": 11,
+    "description": "A basic aquatic Mob with low Power."
+  },
+  {
+    "name": "Glow Squid",
+    "type": "COMMON",
+    "power": 13,
+    "description": "A glowing aquatic Mob with useful evasive potential."
+  },
+  {
+    "name": "Bat",
+    "type": "COMMON",
+    "power": 5,
+    "description": "An extremely weak flying Mob."
+  },
+  {
+    "name": "Parrot",
+    "type": "COMMON",
+    "power": 10,
+    "description": "A tiny bird with a useful imitation-themed ability."
+  },
+  {
+    "name": "Turtle",
+    "type": "COMMON",
+    "power": 18,
+    "description": "A slow but sturdy aquatic creature."
+  },
+  {
+    "name": "Frog",
+    "type": "COMMON",
+    "power": 12,
+    "description": "A small jumper with slippery utility."
+  },
+  {
+    "name": "Armadillo",
+    "type": "COMMON",
+    "power": 20,
+    "description": "A small creature protected by its shell."
+  },
+  {
+    "name": "Bee",
+    "type": "COMMON",
+    "power": 21,
+    "description": "A weak flyer that becomes more useful with Bee allies."
+  },
+  {
+    "name": "Goat",
+    "type": "COMMON",
+    "power": 25,
+    "description": "A sturdy mountain animal known for charging."
+  },
+  {
+    "name": "Wolf",
+    "type": "COMMON",
+    "power": 24,
+    "description": "A loyal predator that benefits from pack strategies."
+  },
+  {
+    "name": "Cat",
+    "type": "COMMON",
+    "power": 19,
+    "description": "A small agile companion with evasive potential."
+  },
+  {
+    "name": "Ocelot",
+    "type": "COMMON",
+    "power": 20,
+    "description": "A cautious jungle predator."
+  },
+  {
+    "name": "Fox",
+    "type": "COMMON",
+    "power": 22,
+    "description": "A clever animal with useful evasive behavior."
+  },
+  {
+    "name": "Dolphin",
+    "type": "COMMON",
+    "power": 24,
+    "description": "A fast aquatic Mob with useful movement."
+  },
+  {
+    "name": "Camel",
+    "type": "COMMON",
+    "power": 28,
+    "description": "A large desert mount with solid defensive strength."
+  },
+  {
+    "name": "Donkey",
+    "type": "COMMON",
+    "power": 25,
+    "description": "A reliable mount with balanced Power."
+  },
+  {
+    "name": "Mule",
+    "type": "COMMON",
+    "power": 26,
+    "description": "A sturdy hybrid mount with dependable Power."
+  },
+  {
+    "name": "Horse",
+    "type": "COMMON",
+    "power": 31,
+    "description": "One of the strongest ordinary passive animals."
+  },
+  {
+    "name": "Sniffer",
+    "type": "COMMON",
+    "power": 29,
+    "description": "An ancient passive Mob with unusual discovery abilities."
+  },
+  {
+    "name": "Allay",
+    "type": "COMMON",
+    "power": 18,
+    "description": "A helpful spirit with strong utility."
+  },
+  {
+    "name": "Copper Golem",
+    "type": "COMMON",
+    "power": 21,
+    "description": "A small utility golem with quirky abilities."
+  },
+  {
+    "name": "Villager",
+    "type": "COMMON",
+    "power": 16,
+    "description": "A peaceful Mob whose value comes from utility."
+  },
+  {
+    "name": "Wandering Trader",
+    "type": "COMMON",
+    "power": 15,
+    "description": "A traveling merchant with useful support potential."
+  },
+  {
+    "name": "Zombie",
+    "type": "COMMON",
+    "power": 32,
+    "description": "A basic undead fighter and reliable sacrifice material."
+  },
+  {
+    "name": "Skeleton",
+    "type": "COMMON",
+    "power": 34,
+    "description": "A ranged undead fighter with reliable Power."
+  },
+  {
+    "name": "Spider",
+    "type": "COMMON",
+    "power": 31,
+    "description": "A fast hostile Mob with good mobility."
+  },
+  {
+    "name": "Slime",
+    "type": "COMMON",
+    "power": 29,
+    "description": "A bouncing Mob that can create smaller threats."
+  },
+  {
+    "name": "Silverfish",
+    "type": "COMMON",
+    "power": 18,
+    "description": "A tiny hostile Mob with low Power."
+  },
+  {
+    "name": "Tadpole",
+    "type": "COMMON",
+    "power": 4,
+    "description": "A tiny aquatic Mob with almost no combat strength."
+  },
+  {
+    "name": "Cave Spider",
+    "type": "ELITE",
+    "power": 42,
+    "description": "A poisonous spider capable of disrupting enemy abilities."
+  },
+  {
+    "name": "Creeper",
+    "type": "ELITE",
+    "power": 46,
+    "description": "A dangerous Mob that explodes when destroyed."
+  },
+  {
+    "name": "Drowned",
+    "type": "ELITE",
+    "power": 41,
+    "description": "An aquatic undead with strong surprise potential."
+  },
+  {
+    "name": "Husk",
+    "type": "ELITE",
+    "power": 40,
+    "description": "A desert undead with strong reliability."
+  },
+  {
+    "name": "Stray",
+    "type": "ELITE",
+    "power": 43,
+    "description": "A cold Skeleton variant that can hinder enemies."
+  },
+  {
+    "name": "Phantom",
+    "type": "ELITE",
+    "power": 49,
+    "description": "A flying undead that can pressure defensive positions."
+  },
+  {
+    "name": "Magma Cube",
+    "type": "ELITE",
+    "power": 45,
+    "description": "A dangerous Nether slime with splitting potential."
+  },
+  {
+    "name": "Piglin",
+    "type": "ELITE",
+    "power": 47,
+    "description": "A Nether warrior that works well with Piglin allies."
+  },
+  {
+    "name": "Zombified Piglin",
+    "type": "ELITE",
+    "power": 48,
+    "description": "A strong undead Nether warrior."
+  },
+  {
+    "name": "Hoglin",
+    "type": "ELITE",
+    "power": 53,
+    "description": "A dangerous Nether beast with high physical strength."
+  },
+  {
+    "name": "Zoglin",
+    "type": "ELITE",
+    "power": 57,
+    "description": "An undead Hoglin with aggressive combat ability."
+  },
+  {
+    "name": "Pillager",
+    "type": "ELITE",
+    "power": 48,
+    "description": "A ranged raider with strong tactical pressure."
+  },
+  {
+    "name": "Vindicator",
+    "type": "ELITE",
+    "power": 56,
+    "description": "A heavy-hitting illager."
+  },
+  {
+    "name": "Witch",
+    "type": "ELITE",
+    "power": 52,
+    "description": "A potion-using Mob capable of manipulating Power."
+  },
+  {
+    "name": "Guardian",
+    "type": "ELITE",
+    "power": 55,
+    "description": "A dangerous aquatic defender."
+  },
+  {
+    "name": "Snow Golem",
+    "type": "ELITE",
+    "power": 27,
+    "description": "A weak golem with useful control abilities."
+  },
+  {
+    "name": "Iron Golem",
+    "type": "ELITE",
+    "power": 67,
+    "description": "A powerful protector with enormous raw strength."
+  },
+  {
+    "name": "Axolotl",
+    "type": "ELITE",
+    "power": 30,
+    "description": "A small aquatic fighter with recovery utility."
+  },
+  {
+    "name": "Panda",
+    "type": "ELITE",
+    "power": 33,
+    "description": "A sturdy neutral Mob with defensive potential."
+  },
+  {
+    "name": "Polar Bear",
+    "type": "ELITE",
+    "power": 39,
+    "description": "A strong neutral predator."
+  },
+  {
+    "name": "Skeleton Horse",
+    "type": "ELITE",
+    "power": 44,
+    "description": "An undead mount with useful combat utility."
+  },
+  {
+    "name": "Vex",
+    "type": "ELITE",
+    "power": 50,
+    "description": "A flying spirit capable of bypassing normal positioning."
+  },
+  {
+    "name": "Blaze",
+    "type": "ELITE",
+    "power": 61,
+    "description": "A dangerous Nether fire Mob."
+  },
+  {
+    "name": "Wither Skeleton",
+    "type": "ELITE",
+    "power": 64,
+    "description": "A powerful undead warrior and valuable Wither material."
+  },
+  {
+    "name": "Breeze",
+    "type": "ELITE",
+    "power": 58,
+    "description": "A wind-based Mob capable of disrupting position."
+  },
+  {
+    "name": "Bogged",
+    "type": "ELITE",
+    "power": 45,
+    "description": "A swamp Skeleton that can weaken an enemy."
+  },
+  {
+    "name": "Shulker",
+    "type": "ELITE",
+    "power": 65,
+    "description": "A defensive End Mob with strong control abilities."
+  },
+  {
+    "name": "Endermite",
+    "type": "ELITE",
+    "power": 24,
+    "description": "A small End creature associated with teleportation."
+  },
+  {
+    "name": "Zombie Villager",
+    "type": "ELITE",
+    "power": 35,
+    "description": "An undead villager with transformation utility."
+  },
+  {
+    "name": "Llama",
+    "type": "ELITE",
+    "power": 37,
+    "description": "A ranged neutral Mob with defensive spit."
+  },
+  {
+    "name": "Trader Llama",
+    "type": "ELITE",
+    "power": 40,
+    "description": "A tougher llama associated with wandering traders."
+  },
+  {
+    "name": "Strider",
+    "type": "ELITE",
+    "power": 38,
+    "description": "A lava-walking Nether Mob with useful environmental abilities."
+  },
+  {
+    "name": "Enderman",
+    "type": "LEGENDARY",
+    "power": 82,
+    "description": "A powerful teleporting End Mob with exceptional mobility."
+  },
+  {
+    "name": "Ghast",
+    "type": "LEGENDARY",
+    "power": 76,
+    "description": "A huge flying Nether Mob with dangerous ranged pressure."
+  },
+  {
+    "name": "Elder Guardian",
+    "type": "LEGENDARY",
+    "power": 90,
+    "description": "A massive guardian capable of suppressing enemy abilities."
+  },
+  {
+    "name": "Piglin Brute",
+    "type": "LEGENDARY",
+    "power": 74,
+    "description": "A fearsome Nether warrior built for direct combat."
+  },
+  {
+    "name": "Warden",
+    "type": "LEGENDARY",
+    "power": 110,
+    "description": "An exceptionally powerful underground guardian."
+  },
+  {
+    "name": "Charged Creeper",
+    "type": "LEGENDARY",
+    "power": 88,
+    "description": "A supercharged Creeper with an exceptionally dangerous explosion."
+  },
+  {
+    "name": "Illusioner",
+    "type": "LEGENDARY",
+    "power": 78,
+    "description": "A rare illager illusionist capable of confusing enemies."
+  },
+  {
+    "name": "Killer Bunny",
+    "type": "LEGENDARY",
+    "power": 70,
+    "description": "A rare hostile rabbit with surprisingly high Power."
+  },
+  {
+    "name": "Giant",
+    "type": "LEGENDARY",
+    "power": 84,
+    "description": "An unused vanilla giant zombie with enormous physical strength."
+  },
+  {
+    "name": "Mooshroom",
+    "type": "LEGENDARY",
+    "power": 43,
+    "description": "A rare cow variant with unusual mushroom-based utility."
+  },
+  {
+    "name": "Zombie Horse",
+    "type": "LEGENDARY",
+    "power": 51,
+    "description": "A powerful undead mount."
+  },
+  {
+    "name": "Evoker",
+    "type": "LEGENDARY",
+    "power": 68,
+    "description": "A dangerous spellcaster with powerful control abilities."
+  },
+  {
+    "name": "Ravager",
+    "type": "LEGENDARY",
+    "power": 77,
+    "description": "A massive raid beast capable of overpowering many Mobs."
+  },
+  {
+    "name": "Wither",
+    "type": "LEGENDARY",
+    "power": 125,
+    "description": "A devastating undead creature with enormous destructive power."
+  },
+  {
+    "name": "Ender Dragon",
+    "type": "BOSS",
+    "power": 150,
+    "description": "The ultimate End creature and one of the game's primary Boss choices."
+  },
+  {
+    "name": "Herobrine",
+    "type": "BOSS",
+    "power": 160,
+    "description": "A mysterious non-vanilla entity and extremely difficult ultimate Boss."
+  },
+  {
+    "name": "Null",
+    "type": "BOSS",
+    "power": 155,
+    "description": "A mysterious non-vanilla entity that manipulates the battlefield."
+  },
+  {
+    "name": "Entity 303",
+    "type": "BOSS",
+    "power": 152,
+    "description": "A powerful non-vanilla entity with dangerous abilities."
+  },
+  {
+    "name": "Wither Storm",
+    "type": "BOSS",
+    "power": 165,
+    "description": "A massive non-vanilla ultimate threat with overwhelming Power."
+  },
+  {
+    "name": "Spyglass",
+    "type": "RARE",
+    "power": null,
+    "description": "Secretly inspect the entire hand of one opponent."
+  },
+  {
+    "name": "Mob Swap",
+    "type": "RARE",
+    "power": null,
+    "description": "Swap the positions of two Mobs. Ownership does not change."
+  },
+  {
+    "name": "Trap",
+    "type": "RARE",
+    "power": null,
+    "description": "Choose one of your Mobs. If an opponent attacks it this turn, destroy the attacking Mob before Power is compared."
+  },
+  {
+    "name": "The Void",
+    "type": "RARE",
+    "power": null,
+    "description": "Permanently banish one enemy Elite-or-lower Mob."
+  },
+  {
+    "name": "Unstable Power",
+    "type": "RARE",
+    "power": null,
+    "description": "Choose a Mob. Its Power becomes a random value between 50% and 150% of its original Power for its next battle."
+  },
+  {
+    "name": "Mutation",
+    "type": "RARE",
+    "power": null,
+    "description": "Choose one Mob. Its Power becomes 150% of its original Power for its next battle, rounded down."
+  },
+  {
+    "name": "Lightning Strike",
+    "type": "RARE",
+    "power": null,
+    "description": "Transform a Pig into a Zombified Piglin or a Creeper into a Charged Creeper. Otherwise give the chosen Mob +10 Power for its next battle."
+  },
+  {
+    "name": "Respawn",
+    "type": "RARE",
+    "power": null,
+    "description": "Return the last Mob destroyed on your side to the first empty slot on your board."
+  },
+  {
+    "name": "Totem of Undying",
+    "type": "RARE",
+    "power": null,
+    "description": "Give the Totem to one of your Mobs. The first time it would be destroyed, it survives instead and the Totem is consumed."
+  },
+  {
+    "name": "TNT",
+    "type": "RARE",
+    "power": null,
+    "description": "Choose two adjacent Mobs. Destroy both."
+  },
+  {
+    "name": "Invisibility Potion",
+    "type": "RARE",
+    "power": null,
+    "description": "Choose one of your Mobs. It cannot be targeted until the start of your next turn."
+  }
+]

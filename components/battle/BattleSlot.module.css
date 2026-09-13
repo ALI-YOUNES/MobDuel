@@ -1,0 +1,342 @@
+.slot {
+  width: 72px;
+  height: 108px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Defense cards are turned 90deg. Rotate the whole slot; the card
+   inside fills it normally (no squeeze). */
+.slotRotateUp {
+  transform: rotate(-90deg);
+}
+
+.slotRotateDown {
+  transform: rotate(90deg);
+}
+
+@media (min-width: 640px) {
+  .slot {
+    width: 92px;
+    height: 132px;
+  }
+}
+
+.empty {
+  background: #e0e2ed;
+  border: 2px dashed #c1c6d7;
+  color: #c1c6d7;
+}
+
+.emptyActive {
+  background: #ffdad6;
+  border: 2px solid rgba(186, 26, 26, 0.5);
+}
+
+.emptyDefense {
+  background: #e0e2ed;
+  border: 2px dashed #c1c6d7;
+}
+
+.emptyPlayerActive {
+  background: #ffffff;
+  border: 3px solid #fdc003;
+}
+
+.emptyPlayerDefense {
+  background: #f1f3fe;
+  border: 2px dashed #adc7ff;
+  color: #adc7ff;
+}
+
+.placeTarget {
+  cursor: pointer;
+  border-style: dashed;
+  color: #0070ea;
+  animation: pulseBorder 1.5s infinite;
+}
+
+.placeTarget span {
+  font-size: 36px;
+  color: #0070ea;
+}
+
+@keyframes pulseBorder {
+  0%, 100% { border-color: rgba(0, 112, 234, 0.5); }
+  50% { border-color: rgba(0, 112, 234, 1); }
+}
+
+/* ── Attack mode visual states ── */
+
+/* Player attacker can be picked */
+.selectable {
+  cursor: pointer;
+  outline: 3px solid #fdc003;
+  outline-offset: 2px;
+  animation: selectablePulse 1s infinite;
+}
+
+@keyframes selectablePulse {
+  0%, 100% { outline-color: #fdc003; transform: translateY(0); }
+  50% { outline-color: #fff3cd; transform: translateY(-4px); }
+}
+
+/* Attacker chosen */
+.selected {
+  cursor: pointer;
+  outline: 4px solid #0070ea;
+  outline-offset: 2px;
+  transform: translateY(-8px);
+  box-shadow: 0 0 0 4px rgba(0, 112, 234, 0.4), 0 14px 28px rgba(0, 112, 234, 0.35);
+  z-index: 5;
+}
+
+/* Attacker lunges when attacking */
+.fxAttack {
+  animation: lunge 0.6s ease;
+}
+
+@keyframes lunge {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-24px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Valid enemy target */
+.targeting {
+  cursor: crosshair;
+  outline: 3px solid #ba1a1a;
+  outline-offset: 2px;
+  animation: targetPulse 0.8s infinite;
+  z-index: 4;
+}
+
+@keyframes targetPulse {
+  0%, 100% { outline-color: #ba1a1a; box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.5); }
+  50% { outline-color: #ff8a80; box-shadow: 0 0 0 10px rgba(186, 26, 26, 0); }
+}
+
+/* Target being hit / destroyed */
+.fxHit {
+  animation: hit 0.7s ease;
+}
+
+@keyframes hit {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.2) rotate(8deg); }
+  40% { transform: scale(0.9) rotate(-8deg); }
+  60% { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(0) rotate(0deg); opacity: 0; }
+}
+
+/* ── Move mode visual states ── */
+
+/* Card that can be picked as the moving card */
+.moveSource {
+  cursor: grab;
+  outline: 3px solid #28a745;
+  outline-offset: 2px;
+  animation: moveSourcePulse 1s infinite;
+}
+
+@keyframes moveSourcePulse {
+  0%, 100% { outline-color: #28a745; transform: translateY(0); }
+  50% { outline-color: #a5f3b1; transform: translateY(-4px); }
+}
+
+/* The chosen moving card */
+.moveSel {
+  cursor: grab;
+  outline: 4px solid #0070ea;
+  outline-offset: 2px;
+  transform: translateY(-8px);
+  box-shadow: 0 0 0 4px rgba(0, 112, 234, 0.4), 0 14px 28px rgba(0, 112, 234, 0.35);
+  z-index: 5;
+}
+
+/* Empty slot that is a valid move destination */
+.moveTarget {
+  cursor: alias;
+  border-style: dashed;
+  color: #28a745;
+  animation: moveTargetPulse 0.9s infinite;
+}
+
+.moveTarget span {
+  font-size: 36px;
+  color: #28a745;
+}
+
+@keyframes moveTargetPulse {
+  0%, 100% { border-color: rgba(40, 167, 69, 0.5); transform: scale(1); }
+  50% { border-color: rgba(40, 167, 69, 1); transform: scale(1.05); }
+}
+
+/* ── Anomaly (Rare card) targeting ── */
+
+.anomalyTarget {
+  cursor: crosshair;
+  outline: 3px solid #7b1fa2;
+  outline-offset: 2px;
+  z-index: 4;
+  animation: anomalyPulse 0.8s infinite;
+}
+
+@keyframes anomalyPulse {
+  0%, 100% { outline-color: #7b1fa2; box-shadow: 0 0 0 0 rgba(123, 31, 162, 0.45); }
+  50% { outline-color: #d1a1e8; box-shadow: 0 0 0 10px rgba(123, 31, 162, 0); }
+}
+
+.anomalySelected {
+  cursor: pointer;
+  outline: 4px solid #fdc003;
+  outline-offset: 2px;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 0 4px rgba(253, 192, 3, 0.4), 0 14px 28px rgba(253, 192, 3, 0.3);
+  z-index: 5;
+}
+
+/* Generic holder for transient anomaly FX shown over the slot */
+.fxKind {
+  overflow: hidden;
+}
+
+.fxOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  border-radius: 8px;
+  z-index: 12;
+  backdrop-filter: blur(1px);
+}
+
+.fxTrap {
+  background: rgba(255, 152, 0, 0.25);
+  animation: fxPulseFast 0.5s infinite;
+}
+.fxTrap span { color: #ff9800; animation: fxBounce 0.5s infinite; }
+
+.fxTotem {
+  background: rgba(253, 192, 3, 0.3);
+  animation: fxSpinGlow 1s infinite;
+}
+.fxTotem span { color: #fdc003; text-shadow: 0 0 12px #fdc003; }
+
+.fxInvisible {
+  background: rgba(144, 202, 249, 0.28);
+  animation: fxShimmer 0.9s infinite;
+}
+.fxInvisible span { color: #b3e5fc; }
+
+.fxVoid {
+  background: radial-gradient(circle, rgba(30, 8, 54, 0.9) 20%, rgba(123, 31, 162, 0.5));
+  animation: fxSwirl 0.8s linear infinite;
+}
+.fxVoid span { color: #e1bee7; }
+
+.fxSwap {
+  background: rgba(0, 112, 234, 0.35);
+  animation: fxSwoosh 0.7s ease;
+}
+.fxSwap span { color: #90caf9; }
+
+.fxLightning {
+  background: rgba(255, 214, 0, 0.45);
+  animation: fxFlash 0.6s ease;
+}
+.fxLightning span { color: #fdc003; text-shadow: 0 0 16px #fff48a; animation: fxBolt 0.6s ease; }
+
+.fxRespawn {
+  background: rgba(40, 167, 69, 0.3);
+  animation: fxSparkle 0.8s ease;
+}
+.fxRespawn span { color: #81c784; }
+
+.fxTnt {
+  background: rgba(255, 87, 34, 0.5);
+  animation: fxExplode 0.7s ease;
+}
+.fxTnt span { color: #ffab40; text-shadow: 0 0 18px #ff5722; }
+
+.fxPower {
+  background: rgba(211, 47, 175, 0.3);
+  animation: fxPulseFast 0.6s infinite;
+}
+.fxPower span { color: #e040fb; }
+
+.fxPeek {
+  background: rgba(0, 188, 212, 0.3);
+  animation: fxShimmer 0.9s infinite;
+}
+.fxPeek span { color: #80deea; }
+
+/* Explosion shown on a destroyed card (attacker hit by a Trap, TNT, fight). */
+.fxBoom {
+  background: radial-gradient(circle, rgba(255, 87, 34, 0.9) 10%, rgba(255, 152, 0, 0.55) 55%, rgba(255, 87, 34, 0) 75%);
+  animation: fxExplode 0.6s ease-out forwards;
+}
+.fxBoom span { color: #ffcc80; text-shadow: 0 0 20px #ff5722; animation: fxBounce 0.25s ease; }
+
+@keyframes fxPulseFast {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+
+@keyframes fxBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes fxSpinGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.6); }
+}
+
+@keyframes fxShimmer {
+  0%, 100% { backdrop-filter: blur(1px) brightness(1); }
+  50% { backdrop-filter: blur(1px) brightness(1.4); }
+}
+
+@keyframes fxSwirl {
+  from { transform: rotate(0deg) scale(0.6); opacity: 0.6; }
+  to { transform: rotate(300deg) scale(1.4); opacity: 1; }
+}
+
+@keyframes fxSwoosh {
+  0% { transform: translateX(-20px) scale(0.8); opacity: 0; }
+  40% { transform: translateX(0) scale(1); opacity: 1; }
+  100% { transform: translateX(20px) scale(0.8); opacity: 0; }
+}
+
+@keyframes fxFlash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@keyframes fxBolt {
+  0% { transform: translateY(-20px) scale(0.7); opacity: 0; }
+  40% { transform: translateY(0) scale(1.2); opacity: 1; }
+  100% { transform: translateY(12px) scale(0.9); opacity: 0.6; }
+}
+
+@keyframes fxSparkle {
+  0% { transform: scale(0.4); opacity: 0; }
+  40% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+@keyframes fxExplode {
+  0% { transform: scale(0.3); opacity: 1; }
+  30% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+

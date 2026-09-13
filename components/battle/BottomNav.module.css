@@ -1,0 +1,70 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 16px;
+  background: #ffffff;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 0 0;
+  border-top: 1px solid rgba(193, 198, 215, 0.2);
+  z-index: 50;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: none;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #414754;
+  padding: 8px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.item:hover {
+  color: #0059bb;
+}
+
+.label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.sacrifice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fdc003;
+  color: #6c5000;
+  border-radius: 16px;
+  padding: 8px;
+  transform: scale(1.1);
+  border: 1px solid rgba(120, 89, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sacrifice:active {
+  transform: scale(0.9);
+}
+
+.sacrificeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 4px;
+}

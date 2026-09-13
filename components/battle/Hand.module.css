@@ -1,0 +1,114 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  top: 56px;
+  background: rgba(0, 31, 63, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 60;
+}
+
+.drawer {
+  width: 100%;
+  max-width: 640px;
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  border-top: 1px solid rgba(193, 198, 215, 0.3);
+  border-left: 1px solid rgba(193, 198, 215, 0.3);
+  border-right: 1px solid rgba(193, 198, 215, 0.3);
+  padding: 16px 16px 20px;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0.5; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #0059bb;
+}
+
+.close {
+  background: #e0e2ed;
+  border: none;
+  color: #181c23;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.cardWrap {
+  flex-shrink: 0;
+  width: 96px;
+  height: 136px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s ease;
+}
+
+.cardWrap:hover {
+  transform: translateY(-8px) rotate(1deg);
+}
+
+.lookBtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 20;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, transform 0.15s, background 0.15s;
+}
+
+.cardWrap:hover .lookBtn {
+  opacity: 1;
+}
+
+.lookBtn:hover {
+  background: #0059bb;
+  transform: scale(1.1);
+}
+
+.empty {
+  color: #414754;
+  font-size: 14px;
+  padding: 16px 0;
+  text-align: center;
+}

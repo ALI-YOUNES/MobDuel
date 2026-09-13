@@ -1,0 +1,118 @@
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border: 4px solid transparent;
+  box-shadow: 0 8px 16px -4px rgba(0, 31, 63, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px -8px rgba(0, 31, 63, 0.15);
+}
+
+.join {
+  border-color: #0059bb;
+}
+
+.decoCircle {
+  position: absolute;
+  border-radius: 9999px;
+  background: #d8e2ff;
+  opacity: 0.5;
+  filter: blur(40px);
+  transition: transform 0.5s;
+}
+
+.card:hover .decoCircle {
+  transform: scale(1.1);
+}
+
+.decoTopRight {
+  top: -40px;
+  right: -40px;
+  width: 128px;
+  height: 128px;
+}
+
+.decoBottomLeft {
+  bottom: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+.cardImage {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.cardTitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  color: #0059bb;
+  margin-bottom: 8px;
+}
+
+.cardDesc {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #414754;
+  margin-bottom: 24px;
+}
+
+.bubblyBtn {
+  width: 100%;
+  max-width: 280px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bubblyBtn:active {
+  transform: scale(0.95) translateY(2px);
+  box-shadow: 0 0px 0 0px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn {
+  background: #0059bb;
+  color: #ffffff;
+  box-shadow: 0 6px 0 0 #004493;
+}
+
+.btn:hover {
+  background: #0070ea;
+}

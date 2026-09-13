@@ -1,0 +1,32 @@
+.btn {
+  position: fixed;
+  top: 56px;
+  right: 14px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #0059bb;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 89, 187, 0.4);
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  background: #0070ea;
+}
+
+.btn:active {
+  transform: scale(0.92);
+}
+
+@media (min-width: 768px) {
+  .btn {
+    top: 14px;
+  }
+}

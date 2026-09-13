@@ -1,0 +1,77 @@
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  max-width: 100%;
+}
+
+.card :global(*) {
+  max-width: 100%;
+}
+
+.lookBtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 20;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, transform 0.15s, background 0.15s;
+}
+
+.card:hover .lookBtn {
+  opacity: 1;
+}
+
+.lookBtn:hover {
+  background: #0059bb;
+  transform: scale(1.1);
+}
+
+.badges {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 21;
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 5px;
+  border-radius: 6px;
+  font-size: 9px;
+  line-height: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.badge em {
+  font-style: normal;
+}
+
+.badgeTrap { background: rgba(255, 152, 0, 0.85); }
+.badgeTotem { background: rgba(253, 192, 3, 0.9); color: #4d3a00; animation: badgeGlow 1.2s infinite; }
+.badgeUntargetable { background: rgba(144, 202, 249, 0.85); color: #0d47a1; }
+
+@keyframes badgeGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(253, 192, 3, 0.6); }
+  50% { box-shadow: 0 0 8px 2px rgba(253, 192, 3, 0.9); }
+}
+
